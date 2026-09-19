@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useMemo, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { Search, SlidersHorizontal, X, Frown, Sparkles } from 'lucide-react';
-import { initialProducts, initialCategories } from '../../data/demoData';
+import { initialProducts, getDynamicCategories } from '../../data/demoData';
 import { ProductCard } from '../../components/ProductCard';
 import { Product } from '../../types';
 
@@ -19,12 +19,16 @@ function ProductsContent() {
   const [searchQuery, setSearchQuery] = useState(querySearch);
   const [selectedAudience, setSelectedAudience] = useState<'all' | 'women' | 'men' | 'kids' | 'fabrics'>('all');
   const [selectedCategory, setSelectedCategory] = useState(queryCategory);
+  const [selectedSubcategory, setSelectedSubcategory] = useState('');
   const [selectedPriceRange, setSelectedPriceRange] = useState(queryPrice);
   const [selectedOccasion, setSelectedOccasion] = useState('');
   const [selectedSize, setSelectedSize] = useState('');
   const [inStockOnly, setInStockOnly] = useState(false);
   const [sortBy, setSortBy] = useState('newest');
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
+
+  // Dynamic Category Counts computed from current product array (No hardcoding!)
+  const dynamicCategories = useMemo(() => getDynamicCategories(products), [products]);
 
   // Sync URL params to local state
   useEffect(() => {
@@ -37,6 +41,18 @@ function ProductsContent() {
     }
     if (queryPrice) setSelectedPriceRange(queryPrice);
   }, [querySearch, queryCategory, queryPrice]);
+
+  // Available Subcategories for current category selection
+  const availableSubcategories = useMemo(() => {
+    if (!selectedCategory) return [];
+    const subcats = new Set<string>();
+    products.forEach((p) => {
+      if (p.category.toLowerCase() === selectedCategory.toLowerCase() && p.subcategory) {
+        subcats.add(p.subcategory);
+      }
+    });
+    return Array.from(subcats);
+  }, [products, selectedCategory]);
 
   const filteredProducts = useMemo(() => {
     let result = products.filter((p) => {
@@ -63,6 +79,7 @@ function ProductsContent() {
         const matchesOccasion = p.occasion.toLowerCase().includes(q);
         const matchesFabric = p.fabric.toLowerCase().includes(q);
         const matchesTags = p.tags?.some((t) => t.toLowerCase().includes(q)) || false;
+        const matchesSku = p.id?.toLowerCase().includes(q) || p._id?.toLowerCase().includes(q) || false;
 
         if (
           !matchesName &&
@@ -70,13 +87,14 @@ function ProductsContent() {
           !matchesSubcategory &&
           !matchesOccasion &&
           !matchesFabric &&
-          !matchesTags
+          !matchesTags &&
+          !matchesSku
         ) {
           return false;
         }
       }
 
-      // 3. Category Sidebar filter (Smart multi-attribute matching)
+      // 3. Category Sidebar filter
       if (selectedCategory) {
         const catLower = selectedCategory.toLowerCase();
         const pCatLower = p.category.toLowerCase();
@@ -93,12 +111,17 @@ function ProductsContent() {
         if (!matchesCat) return false;
       }
 
-      // 4. Special filter (New / Sale / Trending)
+      // 4. Subcategory filter
+      if (selectedSubcategory && p.subcategory?.toLowerCase() !== selectedSubcategory.toLowerCase()) {
+        return false;
+      }
+
+      // 5. Special filter (New / Sale / Trending)
       if (queryFilter === 'new' && !p.isNewArrival) return false;
       if (queryFilter === 'sale' && !p.isSale) return false;
       if (queryFilter === 'trending' && !p.isTrending) return false;
 
-      // 5. Price range filter
+      // 6. Price range filter
       if (selectedPriceRange) {
         if (selectedPriceRange === '0-500' && p.price > 500) return false;
         if (selectedPriceRange === '500-1000' && (p.price < 500 || p.price > 1000)) return false;
@@ -107,17 +130,17 @@ function ProductsContent() {
         if (selectedPriceRange === '2500-above' && p.price < 2500) return false;
       }
 
-      // 6. Occasion filter
+      // 7. Occasion filter
       if (selectedOccasion && !p.occasion.toLowerCase().includes(selectedOccasion.toLowerCase())) {
         return false;
       }
 
-      // 7. Size filter
+      // 8. Size filter
       if (selectedSize && !p.sizes.includes(selectedSize)) {
         return false;
       }
 
-      // 8. Stock status
+      // 9. Stock status
       if (inStockOnly && !p.inStock) {
         return false;
       }
@@ -125,9 +148,9 @@ function ProductsContent() {
       return true;
     });
 
-    // Fallback: If strict category filter produced 0 items, show all products in dataset so user NEVER sees blank screen!
+    // Fallback if category string produces 0 items: show fallback items so user NEVER sees blank screen!
     if (result.length === 0 && selectedCategory) {
-      result = products;
+      result = products.slice(0, 20);
     }
 
     return result.sort((a, b) => {
@@ -141,6 +164,7 @@ function ProductsContent() {
     selectedAudience,
     searchQuery,
     selectedCategory,
+    selectedSubcategory,
     queryFilter,
     selectedPriceRange,
     selectedOccasion,
@@ -153,6 +177,7 @@ function ProductsContent() {
     setSearchQuery('');
     setSelectedAudience('all');
     setSelectedCategory('');
+    setSelectedSubcategory('');
     setSelectedPriceRange('');
     setSelectedOccasion('');
     setSelectedSize('');
@@ -168,13 +193,13 @@ function ProductsContent() {
         <div>
           <div className="flex items-center gap-1.5 text-xs font-bold text-[#8C4351] uppercase tracking-wider mb-1">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Digital Catalogue</span>
+            <span>Digital E-Commerce Catalogue</span>
           </div>
           <h1 className="font-serif text-3xl sm:text-4xl font-bold text-[#5A1827]">
             {selectedCategory ? selectedCategory : 'Explore Fashion Collections'}
           </h1>
           <p className="text-xs sm:text-sm text-[#665B58] mt-1">
-            Showing {filteredProducts.length} clothing items available at Pranjul Fashion House, Chaubepur
+            Showing {filteredProducts.length} unique products out of {products.length} total items in Chaubepur store database
           </p>
         </div>
 
@@ -182,7 +207,7 @@ function ProductsContent() {
         <div className="w-full md:w-96 relative flex items-center">
           <input
             type="text"
-            placeholder="Search sarees, suits, kurtis, men's wear, kids wear..."
+            placeholder="Search SKU (e.g. PFH-SAR-001), sarees, suits, kurtis..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full py-3 pl-10 pr-9 rounded-full bg-white border border-[#D9C4B5] text-xs font-medium text-[#231815] focus:outline-hidden focus:ring-2 focus:ring-[#5A1827]"
@@ -199,7 +224,7 @@ function ProductsContent() {
         </div>
       </div>
 
-      {/* Target Audience / Clothing Type Navigation Bar */}
+      {/* Target Audience Navigation Bar */}
       <div className="flex items-center gap-2.5 border-b border-[#EADED2] pb-3 overflow-x-auto w-full">
         {[
           { id: 'all', label: 'All Collections' },
@@ -213,6 +238,7 @@ function ProductsContent() {
             onClick={() => {
               setSelectedAudience(tab.id as any);
               setSelectedCategory('');
+              setSelectedSubcategory('');
             }}
             className={`px-5 py-2.5 rounded-full text-xs font-bold transition-all whitespace-nowrap shadow-2xs ${
               selectedAudience === tab.id
@@ -224,6 +250,36 @@ function ProductsContent() {
           </button>
         ))}
       </div>
+
+      {/* Subcategory Chips Bar (If Category Selected) */}
+      {availableSubcategories.length > 0 && (
+        <div className="flex items-center gap-2 overflow-x-auto pb-2 w-full">
+          <span className="text-xs font-bold text-[#8C7A77] uppercase shrink-0">Subcategory:</span>
+          <button
+            onClick={() => setSelectedSubcategory('')}
+            className={`px-3 py-1 rounded-full text-xs font-semibold border transition-colors ${
+              selectedSubcategory === ''
+                ? 'bg-[#5A1827] text-white border-[#5A1827]'
+                : 'bg-white text-[#4A3E3D] border-[#D9C4B5] hover:bg-[#FAF7F2]'
+            }`}
+          >
+            All {selectedCategory}
+          </button>
+          {availableSubcategories.map((sub) => (
+            <button
+              key={sub}
+              onClick={() => setSelectedSubcategory(selectedSubcategory === sub ? '' : sub)}
+              className={`px-3 py-1 rounded-full text-xs font-semibold border transition-colors whitespace-nowrap ${
+                selectedSubcategory === sub
+                  ? 'bg-[#5A1827] text-white border-[#5A1827]'
+                  : 'bg-white text-[#4A3E3D] border-[#D9C4B5] hover:bg-[#FAF7F2]'
+              }`}
+            >
+              {sub}
+            </button>
+          ))}
+        </div>
+      )}
 
       {/* Main Full-Width Content Layout */}
       <div className="flex flex-col lg:flex-row gap-8 w-full">
@@ -242,22 +298,28 @@ function ProductsContent() {
             </button>
           </div>
 
-          {/* Category Filter */}
+          {/* Dynamic Categories List with Dynamic Counts */}
           <div className="space-y-2.5">
             <h4 className="text-xs font-bold uppercase tracking-wider text-[#4A3E3D]">Categories</h4>
             <div className="space-y-1">
               <button
-                onClick={() => setSelectedCategory('')}
+                onClick={() => {
+                  setSelectedCategory('');
+                  setSelectedSubcategory('');
+                }}
                 className={`w-full text-left px-3 py-2 rounded-xl text-xs font-bold transition-colors ${
                   selectedCategory === '' ? 'bg-[#5A1827] text-white' : 'text-[#524542] hover:bg-[#FAF7F2]'
                 }`}
               >
                 All Categories ({products.length})
               </button>
-              {initialCategories.map((c) => (
+              {dynamicCategories.map((c) => (
                 <button
                   key={c.id}
-                  onClick={() => setSelectedCategory(c.name)}
+                  onClick={() => {
+                    setSelectedCategory(c.name);
+                    setSelectedSubcategory('');
+                  }}
                   className={`w-full text-left px-3 py-2 rounded-xl text-xs font-bold transition-colors flex justify-between ${
                     selectedCategory.toLowerCase() === c.name.toLowerCase()
                       ? 'bg-[#5A1827] text-white'
@@ -265,7 +327,7 @@ function ProductsContent() {
                   }`}
                 >
                   <span>{c.name}</span>
-                  <span className="opacity-70 font-semibold">({c.count})</span>
+                  <span className="opacity-70 font-bold">({c.count})</span>
                 </button>
               ))}
             </div>
