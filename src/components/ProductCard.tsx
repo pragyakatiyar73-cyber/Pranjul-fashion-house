@@ -7,6 +7,7 @@ import { Product } from '../types';
 import { formatPrice, getWhatsAppLink } from '../lib/utils';
 import { useWishlist } from '../context/WishlistContext';
 import { ReserveModal } from './ReserveModal';
+import { ImageWithFallback } from './ImageWithFallback';
 
 interface ProductCardProps {
   product: Product;
@@ -45,9 +46,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <div className="relative aspect-4/5 overflow-hidden bg-[#FAF7F2]">
           {/* Main Product Image */}
           <Link href={`/products/${product.id || product._id}`}>
-            <img
+            <ImageWithFallback
               src={product.images[0]}
               alt={product.name}
+              fallbackText={product.name}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
           </Link>
@@ -78,7 +80,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         {/* Product Details */}
         <div className="p-4 flex-1 flex flex-col justify-between space-y-3">
           <div>
-            <span className="text-[11px] uppercase tracking-wider text-[#8C665D] font-medium block mb-1">
+            <span className="text-[11px] uppercase tracking-wider text-[#8C665D] font-bold block mb-1">
               {product.category}
             </span>
             <Link href={`/products/${product.id || product._id}`}>
