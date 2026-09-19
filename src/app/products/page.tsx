@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useMemo, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { Search, SlidersHorizontal, X, ArrowUpDown, Frown, Sparkles, Filter } from 'lucide-react';
+import { Search, SlidersHorizontal, X, Frown, Sparkles } from 'lucide-react';
 import { initialProducts, initialCategories } from '../../data/demoData';
 import { ProductCard } from '../../components/ProductCard';
 import { Product } from '../../types';
@@ -40,13 +40,18 @@ function ProductsContent() {
 
   const filteredProducts = useMemo(() => {
     return products.filter((p) => {
-      // 1. Audience / Gender filter
+      // 1. Audience / Gender Tab filter
       if (selectedAudience !== 'all') {
         const tags = p.tags?.map((t) => t.toLowerCase()) || [];
-        if (selectedAudience === 'women' && !tags.includes('women') && (p.category === "Men's Ethnic & Formal" || p.category === "Kids' & Girls' Wear")) return false;
-        if (selectedAudience === 'men' && !tags.includes('men') && p.category !== "Men's Ethnic & Formal") return false;
-        if (selectedAudience === 'kids' && !tags.includes('kids') && p.category !== "Kids' & Girls' Wear") return false;
-        if (selectedAudience === 'fabrics' && !tags.includes('fabrics') && p.category !== "Dress Material & Fabrics") return false;
+        if (selectedAudience === 'men') {
+          if (p.category !== "Men's Ethnic & Formal" && !tags.includes('men')) return false;
+        } else if (selectedAudience === 'kids') {
+          if (p.category !== "Kids' & Girls' Wear" && !tags.includes('kids')) return false;
+        } else if (selectedAudience === 'fabrics') {
+          if (p.category !== "Dress Material & Fabrics" && !tags.includes('fabrics')) return false;
+        } else if (selectedAudience === 'women') {
+          if (p.category === "Men's Ethnic & Formal" || p.category === "Kids' & Girls' Wear") return false;
+        }
       }
 
       // 2. Search filter
@@ -71,7 +76,7 @@ function ProductsContent() {
         }
       }
 
-      // 3. Category filter
+      // 3. Category Sidebar filter
       if (selectedCategory && p.category.toLowerCase() !== selectedCategory.toLowerCase()) {
         return false;
       }
@@ -176,7 +181,7 @@ function ProductsContent() {
       </div>
 
       {/* Target Audience / Clothing Type Navigation Bar */}
-      <div className="flex items-center gap-2 border-b border-[#EADED2] pb-3 overflow-x-auto w-full">
+      <div className="flex items-center gap-2.5 border-b border-[#EADED2] pb-3 overflow-x-auto w-full">
         {[
           { id: 'all', label: 'All Collections' },
           { id: 'women', label: "Women's Wear (Sarees & Suits)" },
@@ -295,7 +300,7 @@ function ProductsContent() {
           <div className="space-y-2">
             <h4 className="text-xs font-bold uppercase tracking-wider text-[#4A3E3D]">Available Sizes</h4>
             <div className="flex flex-wrap gap-1.5">
-              {['S', 'M', 'L', 'XL', 'XXL', 'Free Size', 'Unstitched'].map((sz) => (
+              {['S', 'M', 'L', 'XL', 'XXL', '38', '40', '42', '44', 'Free Size'].map((sz) => (
                 <button
                   key={sz}
                   onClick={() => setSelectedSize(selectedSize === sz ? '' : sz)}
