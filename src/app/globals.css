@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-cream: #FAF7F2;
+    --bg-cream-card: #FFFFFF;
+    --brand-wine: #5A1827;
+    --brand-wine-dark: #3E0F1A;
+    --brand-wine-hover: #48121F;
+    --brand-pink: #F7D6D0;
+    --brand-peach: #FBE3D5;
+    --text-dark: #231815;
+    --text-muted: #665B58;
+  }
+  
+  body {
+    background-color: var(--bg-cream);
+    color: var(--text-dark);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+
+  h1, h2, h3, h4, .font-serif {
+    font-family: 'Playfair Display', Georgia, Cambria, 'Times New Roman', Times, serif;
+  }
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #F2EBE3;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #5A1827;
+  border-radius: 9999px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
