@@ -5,48 +5,48 @@ import { getWhatsAppLink, getCallLink } from '../lib/utils';
 
 export const StoreInfoBar: React.FC = () => {
   return (
-    <section className="bg-[#FAF7F2] border-y border-[#EADED2] py-8 px-4">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <section className="bg-[#FAF7F2] border-y border-[#EADED2] py-10 px-6 lg:px-12 w-full">
+      <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         
         {/* Location */}
-        <div className="flex items-start gap-3 p-4 rounded-2xl bg-white border border-[#EADED2] shadow-xs">
-          <div className="p-3 rounded-xl bg-[#F7D6D0] text-[#5A1827] shrink-0">
-            <MapPin className="w-5 h-5" />
+        <div className="flex items-start gap-4 p-5 rounded-2xl bg-white border border-[#EADED2] shadow-xs">
+          <div className="p-3.5 rounded-xl bg-[#F7D6D0] text-[#5A1827] shrink-0">
+            <MapPin className="w-6 h-6" />
           </div>
           <div>
             <h4 className="text-xs font-bold text-[#8C665D] uppercase tracking-wider">
               Visit Our Shop
             </h4>
-            <p className="text-sm font-semibold text-[#231815] mt-0.5">
+            <p className="text-sm font-bold text-[#231815] mt-0.5">
               Chaubepur, Uttar Pradesh
             </p>
             <a
               href={initialStoreSettings.mapEmbedUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-xs font-bold text-[#5A1827] hover:underline mt-1"
+              className="inline-flex items-center gap-1 text-xs font-bold text-[#5A1827] hover:underline mt-1.5"
             >
               <span>Get Directions</span>
-              <Navigation className="w-3 h-3" />
+              <Navigation className="w-3.5 h-3.5" />
             </a>
           </div>
         </div>
 
         {/* Call Us */}
-        <div className="flex items-start gap-3 p-4 rounded-2xl bg-white border border-[#EADED2] shadow-xs">
-          <div className="p-3 rounded-xl bg-[#F7D6D0] text-[#5A1827] shrink-0">
-            <Phone className="w-5 h-5" />
+        <div className="flex items-start gap-4 p-5 rounded-2xl bg-white border border-[#EADED2] shadow-xs">
+          <div className="p-3.5 rounded-xl bg-[#F7D6D0] text-[#5A1827] shrink-0">
+            <Phone className="w-6 h-6" />
           </div>
           <div>
             <h4 className="text-xs font-bold text-[#8C665D] uppercase tracking-wider">
               Call Us Directly
             </h4>
-            <p className="text-sm font-semibold text-[#231815] mt-0.5">
+            <p className="text-sm font-bold text-[#231815] mt-0.5">
               {initialStoreSettings.phone}
             </p>
             <a
               href={getCallLink()}
-              className="inline-flex items-center gap-1 text-xs font-bold text-[#5A1827] hover:underline mt-1"
+              className="inline-flex items-center gap-1 text-xs font-bold text-[#5A1827] hover:underline mt-1.5"
             >
               <span>Call Now</span>
             </a>
@@ -54,22 +54,22 @@ export const StoreInfoBar: React.FC = () => {
         </div>
 
         {/* WhatsApp Us */}
-        <div className="flex items-start gap-3 p-4 rounded-2xl bg-white border border-[#EADED2] shadow-xs">
-          <div className="p-3 rounded-xl bg-[#25D366]/20 text-[#1EBE5D] shrink-0">
-            <MessageCircle className="w-5 h-5" />
+        <div className="flex items-start gap-4 p-5 rounded-2xl bg-white border border-[#EADED2] shadow-xs">
+          <div className="p-3.5 rounded-xl bg-[#25D366]/20 text-[#1EBE5D] shrink-0">
+            <MessageCircle className="w-6 h-6" />
           </div>
           <div>
             <h4 className="text-xs font-bold text-[#8C665D] uppercase tracking-wider">
               WhatsApp Support
             </h4>
-            <p className="text-sm font-semibold text-[#231815] mt-0.5">
+            <p className="text-sm font-bold text-[#231815] mt-0.5">
               Quick Enquiries & Photos
             </p>
             <a
               href={getWhatsAppLink()}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-xs font-bold text-[#1EBE5D] hover:underline mt-1"
+              className="inline-flex items-center gap-1 text-xs font-bold text-[#1EBE5D] hover:underline mt-1.5"
             >
               <span>Chat Now</span>
             </a>
@@ -77,18 +77,18 @@ export const StoreInfoBar: React.FC = () => {
         </div>
 
         {/* Shop Timing */}
-        <div className="flex items-start gap-3 p-4 rounded-2xl bg-white border border-[#EADED2] shadow-xs">
-          <div className="p-3 rounded-xl bg-[#F7D6D0] text-[#5A1827] shrink-0">
-            <Clock className="w-5 h-5" />
+        <div className="flex items-start gap-4 p-5 rounded-2xl bg-white border border-[#EADED2] shadow-xs">
+          <div className="p-3.5 rounded-xl bg-[#F7D6D0] text-[#5A1827] shrink-0">
+            <Clock className="w-6 h-6" />
           </div>
           <div>
             <h4 className="text-xs font-bold text-[#8C665D] uppercase tracking-wider">
               Shop Timing
             </h4>
-            <p className="text-sm font-semibold text-[#231815] mt-0.5">
+            <p className="text-sm font-bold text-[#231815] mt-0.5">
               9:00 AM - 9:00 PM
             </p>
-            <span className="text-xs text-[#665B58] block mt-0.5">
+            <span className="text-xs text-[#665B58] block mt-0.5 font-medium">
               Open 7 Days a Week
             </span>
           </div>

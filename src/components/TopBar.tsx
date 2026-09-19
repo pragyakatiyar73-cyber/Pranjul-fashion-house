@@ -4,8 +4,8 @@ import { initialStoreSettings } from '../data/demoData';
 
 export const TopBar: React.FC = () => {
   return (
-    <div className="bg-[#5A1827] text-[#FAF7F2] text-xs py-2 px-4 border-b border-[#42101B]">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2 text-center md:text-left">
+    <div className="bg-[#5A1827] text-[#FAF7F2] text-xs py-2.5 px-6 lg:px-12 border-b border-[#42101B] w-full">
+      <div className="w-full flex flex-col md:flex-row justify-between items-center gap-2 text-center md:text-left">
         <div className="flex items-center gap-4 flex-wrap justify-center">
           <div className="flex items-center gap-1.5 font-medium">
             <MapPin className="w-3.5 h-3.5 text-[#F7D6D0]" />
@@ -17,7 +17,7 @@ export const TopBar: React.FC = () => {
             <span>Shop Timing: {initialStoreSettings.shopTiming}</span>
           </div>
         </div>
-        <div className="flex items-center gap-1.5 text-[#F7D6D0] font-medium tracking-wide">
+        <div className="flex items-center gap-1.5 text-[#F7D6D0] font-semibold tracking-wide">
           <Sparkles className="w-3.5 h-3.5" />
           <span>{initialStoreSettings.announcementText}</span>
         </div>

@@ -36,34 +36,34 @@ export const Navbar: React.FC = () => {
   };
 
   return (
-    <header className="sticky top-0 z-40 bg-[#FAF7F2]/95 backdrop-blur-md border-b border-[#EADED2] shadow-xs">
-      <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+    <header className="sticky top-0 z-40 bg-[#FAF7F2]/95 backdrop-blur-md border-b border-[#EADED2] shadow-xs w-full">
+      <div className="w-full px-6 lg:px-12 py-3.5 flex items-center justify-between gap-6">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
+        <Link href="/" className="flex items-center gap-3 group shrink-0">
           <div className="w-10 h-10 rounded-full bg-[#5A1827] flex items-center justify-center text-[#F7D6D0] shadow-sm group-hover:bg-[#42101B] transition-colors">
             <Flower2 className="w-6 h-6" />
           </div>
           <div>
-            <span className="font-serif text-xl md:text-2xl font-bold tracking-tight text-[#5A1827] block leading-none">
+            <span className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-[#5A1827] block leading-none">
               Pranjul Fashion House
             </span>
-            <span className="text-[10px] uppercase tracking-widest text-[#8C665D] font-medium block mt-0.5">
+            <span className="text-[10px] uppercase tracking-widest text-[#8C665D] font-bold block mt-1">
               Style for Every You
             </span>
           </div>
         </Link>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-6">
+        <nav className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => {
             const isActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href));
             return (
               <Link
                 key={link.name}
                 href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-[#5A1827] ${
+                className={`text-sm font-semibold transition-colors hover:text-[#5A1827] ${
                   isActive
-                    ? 'text-[#5A1827] font-semibold border-b-2 border-[#5A1827] pb-1'
+                    ? 'text-[#5A1827] font-bold border-b-2 border-[#5A1827] pb-1'
                     : 'text-[#4A3E3D]'
                 }`}
               >
@@ -74,11 +74,11 @@ export const Navbar: React.FC = () => {
         </nav>
 
         {/* Right side icons */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 shrink-0">
           {/* Search Button */}
           <button
             onClick={() => setSearchOpen(!searchOpen)}
-            className="p-2 rounded-full text-[#5A1827] hover:bg-[#F2E8DF] transition-colors"
+            className="p-2.5 rounded-full text-[#5A1827] hover:bg-[#F2E8DF] transition-colors"
             title="Search Products"
           >
             <Search className="w-5 h-5" />
@@ -87,12 +87,12 @@ export const Navbar: React.FC = () => {
           {/* Wishlist Link */}
           <Link
             href="/wishlist"
-            className="p-2 rounded-full text-[#5A1827] hover:bg-[#F2E8DF] transition-colors relative"
+            className="p-2.5 rounded-full text-[#5A1827] hover:bg-[#F2E8DF] transition-colors relative"
             title="Wishlist"
           >
             <Heart className="w-5 h-5" />
             {wishlistCount > 0 && (
-              <span className="absolute top-0 right-0 w-4 h-4 rounded-full bg-[#5A1827] text-white text-[10px] font-bold flex items-center justify-center">
+              <span className="absolute top-0.5 right-0.5 w-4 h-4 rounded-full bg-[#5A1827] text-white text-[10px] font-bold flex items-center justify-center">
                 {wishlistCount}
               </span>
             )}
@@ -103,7 +103,7 @@ export const Navbar: React.FC = () => {
             href={getWhatsAppLink()}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#25D366] text-white text-xs font-semibold hover:bg-[#1EBE5D] transition-colors shadow-xs"
+            className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-full bg-[#25D366] text-white text-xs font-bold hover:bg-[#1EBE5D] transition-colors shadow-xs"
           >
             <MessageCircle className="w-4 h-4 fill-white" />
             <span>WhatsApp</span>
@@ -112,7 +112,7 @@ export const Navbar: React.FC = () => {
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-lg text-[#5A1827] hover:bg-[#F2E8DF]"
+            className="lg:hidden p-2.5 rounded-lg text-[#5A1827] hover:bg-[#F2E8DF]"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -121,19 +121,19 @@ export const Navbar: React.FC = () => {
 
       {/* Expanded Search Bar Drawer */}
       {searchOpen && (
-        <div className="border-t border-[#EADED2] bg-[#F7F0E8] p-4 animate-fade-in">
-          <form onSubmit={handleSearchSubmit} className="max-w-3xl mx-auto relative flex items-center">
+        <div className="border-t border-[#EADED2] bg-[#F7F0E8] p-4 animate-fade-in w-full">
+          <form onSubmit={handleSearchSubmit} className="w-full max-w-4xl mx-auto relative flex items-center">
             <input
               type="text"
               placeholder="Search sarees, suits, kurtis, western dresses, formal, wedding..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full py-2.5 pl-4 pr-24 rounded-full bg-white border border-[#D9C4B5] text-sm text-[#231815] focus:outline-hidden focus:ring-2 focus:ring-[#5A1827]"
+              className="w-full py-3 pl-5 pr-28 rounded-full bg-white border border-[#D9C4B5] text-sm text-[#231815] focus:outline-hidden focus:ring-2 focus:ring-[#5A1827]"
               autoFocus
             />
             <button
               type="submit"
-              className="absolute right-1 px-4 py-1.5 rounded-full bg-[#5A1827] text-white text-xs font-semibold hover:bg-[#42101B]"
+              className="absolute right-1.5 px-5 py-2 rounded-full bg-[#5A1827] text-white text-xs font-bold hover:bg-[#42101B]"
             >
               Search
             </button>
@@ -143,14 +143,14 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-[#EADED2] bg-[#FAF7F2] px-4 py-4 space-y-3">
+        <div className="lg:hidden border-t border-[#EADED2] bg-[#FAF7F2] px-6 py-4 space-y-3 w-full">
           <div className="flex flex-col gap-2">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-md text-sm font-medium text-[#4A3E3D] hover:bg-[#F2E8DF] hover:text-[#5A1827]"
+                className="px-3 py-2.5 rounded-md text-sm font-semibold text-[#4A3E3D] hover:bg-[#F2E8DF] hover:text-[#5A1827]"
               >
                 {link.name}
               </Link>
@@ -159,7 +159,7 @@ export const Navbar: React.FC = () => {
               href={getWhatsAppLink()}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2 flex items-center justify-center gap-2 py-2.5 rounded-lg bg-[#25D366] text-white text-sm font-semibold"
+              className="mt-2 flex items-center justify-center gap-2 py-3 rounded-lg bg-[#25D366] text-white text-sm font-bold"
             >
               <MessageCircle className="w-4 h-4 fill-white" />
               <span>Enquire on WhatsApp</span>
