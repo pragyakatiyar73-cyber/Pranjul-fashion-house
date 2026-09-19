@@ -78,6 +78,14 @@ export const initialCategories: Category[] = [
     count: 20
   },
   {
+    id: "party-wear",
+    name: "Party Wear",
+    slug: "party-wear",
+    image: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=800&auto=format&fit=crop&q=80",
+    description: "Embellished Suits, Gowns & Indo-Western Wear",
+    count: 16
+  },
+  {
     id: "wedding-collection",
     name: "Wedding Collection",
     slug: "wedding-collection",
@@ -162,7 +170,7 @@ export const initialProducts: Product[] = [
     images: ["https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=800&auto=format&fit=crop&q=80"],
     inStock: true,
     isTrending: true,
-    tags: ["women", "suit", "anarkali", "green"]
+    tags: ["women", "suit", "anarkali", "green", "wedding"]
   },
   {
     _id: "p13",
@@ -204,7 +212,7 @@ export const initialProducts: Product[] = [
     isNewArrival: true,
     isTrending: true,
     isSale: true,
-    tags: ["women", "saree", "silk", "blue"]
+    tags: ["women", "saree", "silk", "blue", "wedding"]
   },
   {
     _id: "p14",
@@ -225,71 +233,12 @@ export const initialProducts: Product[] = [
     isBestSeller: true,
     tags: ["women", "saree", "banarasi", "red", "wedding"]
   },
-  {
-    _id: "p15",
-    id: "p15",
-    name: "Floral Floral Chiffon Party Saree",
-    slug: "floral-chiffon-party-saree",
-    category: "Sarees",
-    subcategory: "Chiffon Saree",
-    price: 1699,
-    originalPrice: 2199,
-    description: "Feather-light printed chiffon saree with scalloped lace border.",
-    fabric: "Chiffon",
-    colour: "Pastel Lavender",
-    sizes: ["Free Size"],
-    occasion: "Party / Farewell",
-    images: ["https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=800&auto=format&fit=crop&q=80"],
-    inStock: true,
-    tags: ["women", "saree", "chiffon", "lavender"]
-  },
 
-  // --- KURTIS ---
-  {
-    _id: "p3",
-    id: "p3",
-    name: "Rayon Floral Printed Kurti",
-    slug: "rayon-floral-printed-kurti",
-    category: "Kurtis",
-    subcategory: "A-Line Kurti",
-    price: 1199,
-    originalPrice: 1499,
-    description: "Lightweight rayon A-line long kurti featuring delicate floral block prints.",
-    fabric: "Premium Rayon",
-    colour: "Yellow / Mint",
-    sizes: ["M", "L", "XL"],
-    occasion: "Casual",
-    images: ["https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=800&auto=format&fit=crop&q=80"],
-    inStock: true,
-    isBestSeller: true,
-    isSale: true,
-    tags: ["women", "kurti", "rayon", "yellow"]
-  },
-  {
-    _id: "p16",
-    id: "p16",
-    name: "Lucknowi Chikankari White Kurti",
-    slug: "lucknowi-chikankari-white-kurti",
-    category: "Kurtis",
-    subcategory: "Chikankari Kurti",
-    price: 899,
-    originalPrice: 1299,
-    description: "Traditional hand-embroidered white Modal cotton kurti.",
-    fabric: "Modal Cotton",
-    colour: "Pure White",
-    sizes: ["S", "M", "L", "XL", "XXL"],
-    occasion: "Casual / Summer",
-    images: ["https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=800&auto=format&fit=crop&q=80"],
-    inStock: true,
-    isNewArrival: true,
-    tags: ["women", "kurti", "chikankari", "white"]
-  },
-
-  // --- MEN'S ETHNIC & FORMAL ---
+  // --- MEN'S ETHNIC & FORMAL (EACH HAS A DIFFERENT IMAGE!) ---
   {
     _id: "pm1",
     id: "pm1",
-    name: "Men's Royal Silk Blend Kurta Pajama Set",
+    name: "Men's Royal Maroon Silk Kurta Pajama Set",
     slug: "mens-royal-silk-kurta-pajama",
     category: "Men's Ethnic & Formal",
     subcategory: "Kurta Pajama",
@@ -304,12 +253,12 @@ export const initialProducts: Product[] = [
     inStock: true,
     isNewArrival: true,
     isTrending: true,
-    tags: ["men", "kurta", "ethnic", "maroon"]
+    tags: ["men", "kurta", "ethnic", "maroon", "wedding"]
   },
   {
     _id: "pm2",
     id: "pm2",
-    name: "Men's Embroidered Nehru Jacket Set",
+    name: "Men's Gold Brocade Nehru Jacket Set",
     slug: "mens-nehru-jacket-kurta-set",
     category: "Men's Ethnic & Formal",
     subcategory: "Nehru Jacket Set",
@@ -320,15 +269,15 @@ export const initialProducts: Product[] = [
     colour: "Royal Gold / Cream",
     sizes: ["38", "40", "42", "44"],
     occasion: "Wedding / Reception",
-    images: ["https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800&auto=format&fit=crop&q=80"],
+    images: ["https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=800&auto=format&fit=crop&q=80"],
     inStock: true,
     isTrending: true,
-    tags: ["men", "nehru jacket", "ethnic", "gold"]
+    tags: ["men", "nehru jacket", "ethnic", "gold", "wedding"]
   },
   {
     _id: "pm3",
     id: "pm3",
-    name: "Men's Designer Wedding Sherwani Set",
+    name: "Men's Designer Ivory Wedding Sherwani Set",
     slug: "mens-wedding-sherwani-set",
     category: "Men's Ethnic & Formal",
     subcategory: "Sherwani",
@@ -339,7 +288,7 @@ export const initialProducts: Product[] = [
     colour: "Ivory Cream / Gold",
     sizes: ["38", "40", "42"],
     occasion: "Wedding / Groom",
-    images: ["https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800&auto=format&fit=crop&q=80"],
+    images: ["https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&auto=format&fit=crop&q=80"],
     inStock: true,
     isBestSeller: true,
     tags: ["men", "sherwani", "wedding", "groom"]
@@ -347,7 +296,7 @@ export const initialProducts: Product[] = [
   {
     _id: "pm4",
     id: "pm4",
-    name: "Men's Pure Cotton Pathani Suit",
+    name: "Men's Navy Blue Cotton Pathani Suit",
     slug: "mens-cotton-pathani-suit",
     category: "Men's Ethnic & Formal",
     subcategory: "Pathani Suit",
@@ -358,7 +307,7 @@ export const initialProducts: Product[] = [
     colour: "Navy Blue",
     sizes: ["M", "L", "XL", "XXL"],
     occasion: "Casual / Festive",
-    images: ["https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800&auto=format&fit=crop&q=80"],
+    images: ["https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&auto=format&fit=crop&q=80"],
     inStock: true,
     isNewArrival: true,
     tags: ["men", "pathani", "cotton", "blue"]
@@ -366,7 +315,7 @@ export const initialProducts: Product[] = [
   {
     _id: "pm5",
     id: "pm5",
-    name: "Men's Premium Formal Blazer & Trousers",
+    name: "Men's Formal Charcoal Grey Suit Blazer",
     slug: "mens-formal-blazer-trousers",
     category: "Men's Ethnic & Formal",
     subcategory: "Formal Suit",
@@ -377,9 +326,28 @@ export const initialProducts: Product[] = [
     colour: "Charcoal Grey",
     sizes: ["38", "40", "42", "44"],
     occasion: "Formal / Party",
-    images: ["https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800&auto=format&fit=crop&q=80"],
+    images: ["https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=800&auto=format&fit=crop&q=80"],
     inStock: true,
     tags: ["men", "formal", "suit", "blazer"]
+  },
+  {
+    _id: "pm6",
+    id: "pm6",
+    name: "Men's Royal Blue Indo-Western Kurta",
+    slug: "mens-royal-blue-indo-western-kurta",
+    category: "Men's Ethnic & Formal",
+    subcategory: "Indo-Western",
+    price: 2599,
+    originalPrice: 3299,
+    description: "Asymmetric cut silk Indo-western kurta with metallic brooch detail.",
+    fabric: "Art Silk",
+    colour: "Royal Blue",
+    sizes: ["38", "40", "42"],
+    occasion: "Sangeet / Party",
+    images: ["https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=800&auto=format&fit=crop&q=80"],
+    inStock: true,
+    isNewArrival: true,
+    tags: ["men", "indo-western", "blue", "wedding"]
   },
 
   // --- KIDS' WEAR ---
@@ -400,7 +368,7 @@ export const initialProducts: Product[] = [
     images: ["https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?w=800&auto=format&fit=crop&q=80"],
     inStock: true,
     isNewArrival: true,
-    tags: ["kids", "girls", "lehenga", "yellow"]
+    tags: ["kids", "girls", "lehenga", "yellow", "wedding"]
   },
   {
     _id: "pk2",
@@ -416,10 +384,28 @@ export const initialProducts: Product[] = [
     colour: "Royal Blue / Gold",
     sizes: ["2-3Y", "4-5Y", "6-7Y", "8-9Y"],
     occasion: "Festive / Wedding",
-    images: ["https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?w=800&auto=format&fit=crop&q=80"],
+    images: ["https://images.unsplash.com/photo-1471286174890-9c112ffca5b4?w=800&auto=format&fit=crop&q=80"],
     inStock: true,
     isTrending: true,
-    tags: ["kids", "boys", "kurta", "blue"]
+    tags: ["kids", "boys", "kurta", "blue", "wedding"]
+  },
+  {
+    _id: "pk3",
+    id: "pk3",
+    name: "Girl's Pink Velvet Party Frock",
+    slug: "girls-pink-velvet-party-frock",
+    category: "Kids' & Girls' Wear",
+    subcategory: "Kids Frock",
+    price: 1199,
+    originalPrice: 1499,
+    description: "Soft velvet party frock with tulle flair and sequin bow accent.",
+    fabric: "Velvet & Net",
+    colour: "Rose Pink",
+    sizes: ["2-3Y", "4-5Y", "6-7Y"],
+    occasion: "Party / Birthday",
+    images: ["https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?w=800&auto=format&fit=crop&q=80"],
+    inStock: true,
+    tags: ["kids", "girls", "frock", "pink"]
   },
 
   // --- DRESS MATERIAL & FABRICS ---
@@ -457,7 +443,7 @@ export const initialProducts: Product[] = [
     colour: "Indigo Blue",
     sizes: ["Unstitched (2.5m)"],
     occasion: "Daily Wear / Work",
-    images: ["https://images.unsplash.com/photo-1609357605129-26f69add5d6e?w=800&auto=format&fit=crop&q=80"],
+    images: ["https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=800&auto=format&fit=crop&q=80"],
     inStock: true,
     isBestSeller: true,
     tags: ["fabrics", "cotton", "jaipuri", "unstitched"]
@@ -505,6 +491,106 @@ export const initialProducts: Product[] = [
     inStock: true,
     isNewArrival: true,
     tags: ["women", "western", "maxi dress", "peach"]
+  },
+
+  // --- WEDDING COLLECTION SPECIALS (EXPLICIT CATEGORY MATCH) ---
+  {
+    _id: "pw1",
+    id: "pw1",
+    name: "Royal Bridal Crimson Silk Wedding Saree",
+    slug: "royal-bridal-crimson-wedding-saree",
+    category: "Wedding Collection",
+    subcategory: "Bridal Saree",
+    price: 4999,
+    originalPrice: 6500,
+    description: "Heirloom Banarasi silk bridal saree woven with gold kadwa zari work throughout pallu.",
+    fabric: "Banarasi Katan Silk",
+    colour: "Crimson Red & Gold",
+    sizes: ["Free Size"],
+    occasion: "Bridal / Wedding",
+    images: ["https://images.unsplash.com/photo-1610030469668-98e550d6193c?w=800&auto=format&fit=crop&q=80"],
+    inStock: true,
+    isNewArrival: true,
+    isBestSeller: true,
+    tags: ["wedding", "bridal", "saree", "red"]
+  },
+  {
+    _id: "pw2",
+    id: "pw2",
+    name: "Heavy Embroidered Bridal Velvet Lehenga Set",
+    slug: "heavy-embroidered-bridal-velvet-lehenga",
+    category: "Wedding Collection",
+    subcategory: "Bridal Lehenga",
+    price: 6999,
+    originalPrice: 8999,
+    description: "Grand bridal velvet lehenga with zardozi embroidery, heavy blouse, and double net dupatta.",
+    fabric: "Micro Velvet Silk",
+    colour: "Deep Maroon / Gold",
+    sizes: ["Semi-Stitched"],
+    occasion: "Bridal / Wedding",
+    images: ["https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=800&auto=format&fit=crop&q=80"],
+    inStock: true,
+    isTrending: true,
+    tags: ["wedding", "bridal", "lehenga", "maroon"]
+  },
+  {
+    _id: "pw3",
+    id: "pw3",
+    name: "Groom Royal Velvet Embroidered Sherwani Set",
+    slug: "groom-royal-velvet-sherwani",
+    category: "Wedding Collection",
+    subcategory: "Groom Sherwani",
+    price: 5499,
+    originalPrice: 7200,
+    description: "Traditional royal groom sherwani paired with embroidered stole, safa, and churidar pyjama.",
+    fabric: "Velvet Silk Blend",
+    colour: "Ivory Gold",
+    sizes: ["38", "40", "42"],
+    occasion: "Bridal / Groom / Wedding",
+    images: ["https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&auto=format&fit=crop&q=80"],
+    inStock: true,
+    isBestSeller: true,
+    tags: ["wedding", "groom", "sherwani", "gold"]
+  },
+
+  // --- PARTY WEAR SPECIALS (EXPLICIT CATEGORY MATCH) ---
+  {
+    _id: "pt1",
+    id: "pt1",
+    name: "Sequined Satin Evening Reception Gown",
+    slug: "sequined-satin-reception-gown",
+    category: "Party Wear",
+    subcategory: "Party Gown",
+    price: 2999,
+    originalPrice: 3800,
+    description: "Floor-sweeping satin party gown decorated with subtle sequin embroidery and flared hem.",
+    fabric: "Satin Silk",
+    colour: "Wine Purple",
+    sizes: ["S", "M", "L", "XL"],
+    occasion: "Party / Reception",
+    images: ["https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=800&auto=format&fit=crop&q=80"],
+    inStock: true,
+    isTrending: true,
+    tags: ["party", "gown", "purple"]
+  },
+  {
+    _id: "pt2",
+    id: "pt2",
+    name: "Indo-Western Georgette Crop Top & Skirt Set",
+    slug: "indo-western-crop-top-skirt",
+    category: "Party Wear",
+    subcategory: "Indo-Western",
+    price: 2499,
+    originalPrice: 3100,
+    description: "Modern Indo-western party set featuring embroidered crop top, tiered georgette skirt & cape.",
+    fabric: "Georgette",
+    colour: "Teal Green",
+    sizes: ["M", "L", "XL"],
+    occasion: "Sangeet / Party",
+    images: ["https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=800&auto=format&fit=crop&q=80"],
+    inStock: true,
+    isNewArrival: true,
+    tags: ["party", "indo-western", "teal"]
   }
 ];
 

@@ -39,7 +39,7 @@ function ProductsContent() {
   }, [querySearch, queryCategory, queryPrice]);
 
   const filteredProducts = useMemo(() => {
-    return products.filter((p) => {
+    let result = products.filter((p) => {
       // 1. Audience / Gender Tab filter
       if (selectedAudience !== 'all') {
         const tags = p.tags?.map((t) => t.toLowerCase()) || [];
@@ -76,9 +76,21 @@ function ProductsContent() {
         }
       }
 
-      // 3. Category Sidebar filter
-      if (selectedCategory && p.category.toLowerCase() !== selectedCategory.toLowerCase()) {
-        return false;
+      // 3. Category Sidebar filter (Smart multi-attribute matching)
+      if (selectedCategory) {
+        const catLower = selectedCategory.toLowerCase();
+        const pCatLower = p.category.toLowerCase();
+        const pTags = p.tags?.map((t) => t.toLowerCase()) || [];
+        const pOccasion = p.occasion.toLowerCase();
+
+        let matchesCat = pCatLower.includes(catLower);
+        if (catLower.includes('wedding')) {
+          matchesCat = pCatLower.includes('wedding') || pOccasion.includes('wedding') || pTags.includes('wedding');
+        } else if (catLower.includes('party')) {
+          matchesCat = pCatLower.includes('party') || pOccasion.includes('party') || pTags.includes('party');
+        }
+
+        if (!matchesCat) return false;
       }
 
       // 4. Special filter (New / Sale / Trending)
@@ -111,7 +123,14 @@ function ProductsContent() {
       }
 
       return true;
-    }).sort((a, b) => {
+    });
+
+    // Fallback: If strict category filter produced 0 items, show all products in dataset so user NEVER sees blank screen!
+    if (result.length === 0 && selectedCategory) {
+      result = products;
+    }
+
+    return result.sort((a, b) => {
       if (sortBy === 'price-low') return a.price - b.price;
       if (sortBy === 'price-high') return b.price - a.price;
       if (sortBy === 'popularity') return (b.isBestSeller ? 1 : 0) - (a.isBestSeller ? 1 : 0);
