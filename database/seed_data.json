@@ -1,0 +1,328 @@
+{
+  "storeInfo": {
+    "name": "Pranjul Fashion House",
+    "location": "Main Market Road, Near Union Bank, Chaubepur, Kanpur/Varanasi Belt",
+    "phone": "+91 98765 43210",
+    "whatsappChannel": "https://whatsapp.com/channel/0029VaPranjulFashionChaubepur",
+    "openingHours": "09:30 AM - 09:30 PM (Open All 7 Days)",
+    "tagline": "Chaubepur's No. 1 Family Fashion Store - All Clothes for Men, Women & Kids at Wholesale Prices!"
+  },
+  "categories": [
+    {
+      "id": "cat-women",
+      "name": "Women's Collection",
+      "target_group": "Women",
+      "description": "Exclusive Sarees, Designer Suits, Festival Lehengas & Kurtis",
+      "image": "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+      "id": "cat-men",
+      "name": "Men's Collection",
+      "target_group": "Men",
+      "description": "Formal & Casual Shirts, Jeans, Royal Kurtas, Blazers & Sherwanis",
+      "image": "https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+      "id": "cat-boys",
+      "name": "Boy's Wear",
+      "target_group": "Boys",
+      "description": "Trendy Shirts, Denim Jeans, Partywear Suits & Indo-Western Sets",
+      "image": "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+      "id": "cat-girls",
+      "name": "Girl's Wear",
+      "target_group": "Girls",
+      "description": "Princess Gowns, Frocks, Lehenga Cholis & Festive Dresses",
+      "image": "https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+      "id": "cat-kids",
+      "name": "Kids & Baby Collection",
+      "target_group": "Kids",
+      "description": "Soft Cotton Clothes, New Born Sets, Comfort Wear",
+      "image": "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+      "id": "cat-festive",
+      "name": "Festival & Wedding Special",
+      "target_group": "All",
+      "description": "Bumper Festival Discounts on Family Combo Packs",
+      "image": "https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=600&q=80"
+    }
+  ],
+  "festivalOffers": [
+    {
+      "id": "fest-1",
+      "title": "🎉 Festival Bumper Dhamaka",
+      "code": "PRANJUL50",
+      "discount_text": "FLAT 50% OFF on Festive Sarees & Lehengas",
+      "banner_subtitle": "Exclusive Chaubepur Festival Price - Limited Stock!",
+      "valid_till": "Valid till Festival Season",
+      "bg_gradient": "from-red-600 to-amber-600"
+    },
+    {
+      "id": "fest-2",
+      "title": "👔 Men's Royal Wedding Special",
+      "code": "ROYAL30",
+      "discount_text": "BUY 2 GET 1 FREE on Premium Men's Shirts",
+      "banner_subtitle": "Upgrade your wardrobe with Chaubepur's top styles",
+      "valid_till": "Limited Period Offer",
+      "bg_gradient": "from-purple-700 to-indigo-900"
+    },
+    {
+      "id": "fest-3",
+      "title": "👶 Kids Festive Combo Offer",
+      "code": "KIDS25",
+      "discount_text": "Extra 25% OFF on Boys & Girls Ethnic Wear",
+      "banner_subtitle": "Make your children look like stars this season",
+      "valid_till": "This Week Only",
+      "bg_gradient": "from-emerald-600 to-teal-800"
+    }
+  ],
+  "products": [
+    {
+      "id": "p-101",
+      "title": "Pranjul Pure Silk Banarasi Saree with Zari Border",
+      "category_id": "cat-women",
+      "gender": "Women",
+      "price": 1499,
+      "original_mrp": 2999,
+      "discount_percent": 50,
+      "wholesale_cost": 850,
+      "stock_count": 45,
+      "rating": 4.9,
+      "rating_count": 320,
+      "is_new_arrival": true,
+      "is_festival_deal": true,
+      "festival_tag": "Diwali Special Offer",
+      "available_sizes": ["Free Size"],
+      "fabric": "Pure Art Silk with Jacquard Weave",
+      "images": [
+        "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=600&q=80",
+        "https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=600&q=80"
+      ],
+      "description": "Rich traditional Banarasi silk saree directly from Chaubepur Pranjul Fashion stock. Comes with unstitched blouse piece. Perfect for festivals, puja, and weddings."
+    },
+    {
+      "id": "p-102",
+      "title": "Designer Heavy Embroidery Bridal Lehenga Choli",
+      "category_id": "cat-women",
+      "gender": "Women",
+      "price": 3499,
+      "original_mrp": 6999,
+      "discount_percent": 50,
+      "wholesale_cost": 2100,
+      "stock_count": 20,
+      "rating": 4.9,
+      "rating_count": 185,
+      "is_new_arrival": true,
+      "is_festival_deal": true,
+      "festival_tag": "Wedding Season Trend",
+      "available_sizes": ["M", "L", "XL"],
+      "fabric": "Semi-Georgette with Dori & Sequins Work",
+      "images": [
+        "https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=600&q=80"
+      ],
+      "description": "Stunning Royal Maroon & Gold Lehenga Choli set with matching Dupatta. A bestseller at Pranjul Fashion House, Chaubepur."
+    },
+    {
+      "id": "p-103",
+      "title": "Women Anarkali Cotton Kurti Set with Dupatta",
+      "category_id": "cat-women",
+      "gender": "Women",
+      "price": 899,
+      "original_mrp": 1799,
+      "discount_percent": 50,
+      "wholesale_cost": 480,
+      "stock_count": 80,
+      "rating": 4.7,
+      "rating_count": 410,
+      "is_new_arrival": false,
+      "is_festival_deal": true,
+      "festival_tag": "Daily Wear Bargain",
+      "available_sizes": ["S", "M", "L", "XL", "XXL"],
+      "fabric": "100% Breathable Malmal Cotton",
+      "images": [
+        "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=600&q=80"
+      ],
+      "description": "Flowy printed cotton Anarkali suit set with pant and matching printed cotton dupatta. Highly comfortable for festive gatherings."
+    },
+    {
+      "id": "p-201",
+      "title": "Men's Royal Silk Kurta Pyjama Set with Nehru Jacket",
+      "category_id": "cat-men",
+      "gender": "Men",
+      "price": 1299,
+      "original_mrp": 2599,
+      "discount_percent": 50,
+      "wholesale_cost": 720,
+      "stock_count": 60,
+      "rating": 4.8,
+      "rating_count": 290,
+      "is_new_arrival": true,
+      "is_festival_deal": true,
+      "festival_tag": "Festival Bumper Offer",
+      "available_sizes": ["38 (M)", "40 (L)", "42 (XL)", "44 (XXL)"],
+      "fabric": "Dupion Silk Blend",
+      "images": [
+        "https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?auto=format&fit=crop&w=600&q=80"
+      ],
+      "description": "Elegantly tailored ethnic Kurta Pyjama paired with a textured floral Jacquard Waiscoat/Nehru Jacket. Top pick for Chaubepur grooms & festive attendees."
+    },
+    {
+      "id": "p-202",
+      "title": "Men's Premium Cotton Formal Shirt (Pack of 2)",
+      "category_id": "cat-men",
+      "gender": "Men",
+      "price": 799,
+      "original_mrp": 1599,
+      "discount_percent": 50,
+      "wholesale_cost": 420,
+      "stock_count": 100,
+      "rating": 4.6,
+      "rating_count": 540,
+      "is_new_arrival": false,
+      "is_festival_deal": false,
+      "festival_tag": "Super Saver",
+      "available_sizes": ["M", "L", "XL"],
+      "fabric": "Rich Pure Cotton",
+      "images": [
+        "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=600&q=80"
+      ],
+      "description": "Crisp anti-wrinkle formal long sleeve cotton shirts. Available in Solid White & Royal Blue. Ideal for office & events."
+    },
+    {
+      "id": "p-203",
+      "title": "Men's Slim Fit Stretchable Denim Jeans",
+      "category_id": "cat-men",
+      "gender": "Men",
+      "price": 999,
+      "original_mrp": 1999,
+      "discount_percent": 50,
+      "wholesale_cost": 550,
+      "stock_count": 75,
+      "rating": 4.7,
+      "rating_count": 380,
+      "is_new_arrival": true,
+      "is_festival_deal": false,
+      "festival_tag": "Youth Bestseller",
+      "available_sizes": ["28", "30", "32", "34", "36"],
+      "fabric": "Cotton Elastane Heavy Denim",
+      "images": [
+        "https://images.unsplash.com/photo-1542272604-780c96856592?auto=format&fit=crop&w=600&q=80"
+      ],
+      "description": "Durable, fashionable stretchable dark wash denim jeans. Perfect fit with comfort guarantee from Pranjul Fashion House."
+    },
+    {
+      "id": "p-301",
+      "title": "Boys Ethnic Dhoti Kurta Set with Waistcoat",
+      "category_id": "cat-boys",
+      "gender": "Boys",
+      "price": 699,
+      "original_mrp": 1399,
+      "discount_percent": 50,
+      "wholesale_cost": 360,
+      "stock_count": 50,
+      "rating": 4.8,
+      "rating_count": 150,
+      "is_new_arrival": true,
+      "is_festival_deal": true,
+      "festival_tag": "Kids Festive Special",
+      "available_sizes": ["2-3 Yrs", "4-5 Yrs", "6-7 Yrs", "8-9 Yrs", "10-12 Yrs"],
+      "fabric": "Silk Blend & Soft Cotton Lining",
+      "images": [
+        "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=600&q=80"
+      ],
+      "description": "Super cute traditional Dhoti Kurta set for little boys. Non-allergic fabric lining ensuring maximum comfort during long functions."
+    },
+    {
+      "id": "p-302",
+      "title": "Boys Casual Printed Shirt & Shorts Set",
+      "category_id": "cat-boys",
+      "gender": "Boys",
+      "price": 499,
+      "original_mrp": 999,
+      "discount_percent": 50,
+      "wholesale_cost": 240,
+      "stock_count": 65,
+      "rating": 4.6,
+      "rating_count": 110,
+      "is_new_arrival": false,
+      "is_festival_deal": false,
+      "festival_tag": "Casual Wear",
+      "available_sizes": ["2-4 Yrs", "5-7 Yrs", "8-10 Yrs"],
+      "fabric": "Soft Printed Cotton",
+      "images": [
+        "https://images.unsplash.com/photo-1503919545889-aef636e10ad4?auto=format&fit=crop&w=600&q=80"
+      ],
+      "description": "Vibrant summer casual shirt with matching denim cotton shorts. Soft fabric for playful days."
+    },
+    {
+      "id": "p-401",
+      "title": "Girls Designer Embroidered Net Princess Gown",
+      "category_id": "cat-girls",
+      "gender": "Girls",
+      "price": 899,
+      "original_mrp": 1799,
+      "discount_percent": 50,
+      "wholesale_cost": 450,
+      "stock_count": 40,
+      "rating": 4.9,
+      "rating_count": 210,
+      "is_new_arrival": true,
+      "is_festival_deal": true,
+      "festival_tag": "Party Bestseller",
+      "available_sizes": ["3-4 Yrs", "5-6 Yrs", "7-8 Yrs", "9-10 Yrs", "11-12 Yrs"],
+      "fabric": "Soft Net with Satin Inner & Sequins",
+      "images": [
+        "https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?auto=format&fit=crop&w=600&q=80"
+      ],
+      "description": "Gorgeous floor-length party gown with intricate floral zari border and comfortable inner lining. Girls' favorite at Pranjul Fashion Chaubepur."
+    },
+    {
+      "id": "p-402",
+      "title": "Girls Ready-to-Wear Floral Printed Lehenga Set",
+      "category_id": "cat-girls",
+      "gender": "Girls",
+      "price": 1099,
+      "original_mrp": 2199,
+      "discount_percent": 50,
+      "wholesale_cost": 580,
+      "stock_count": 35,
+      "rating": 4.8,
+      "rating_count": 165,
+      "is_new_arrival": true,
+      "is_festival_deal": true,
+      "festival_tag": "Navratri Special",
+      "available_sizes": ["4-6 Yrs", "7-9 Yrs", "10-12 Yrs"],
+      "fabric": "Taffeta Silk & Net Dupatta",
+      "images": [
+        "https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?auto=format&fit=crop&w=600&q=80"
+      ],
+      "description": "Beautiful ethnic Lehenga Choli set for young girls with vibrant colors and mirror work border."
+    },
+    {
+      "id": "p-501",
+      "title": "Infant Baby Unisex Pure Cotton Gift Set (10 Pieces)",
+      "category_id": "cat-kids",
+      "gender": "Kids",
+      "price": 599,
+      "original_mrp": 1199,
+      "discount_percent": 50,
+      "wholesale_cost": 300,
+      "stock_count": 50,
+      "rating": 4.9,
+      "rating_count": 270,
+      "is_new_arrival": false,
+      "is_festival_deal": false,
+      "festival_tag": "New Born Essential",
+      "available_sizes": ["0-6 Months", "6-12 Months"],
+      "fabric": "100% Bio-Washed Organic Cotton",
+      "images": [
+        "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=600&q=80"
+      ],
+      "description": "Complete newborn baby hamper including jhablas, caps, mittens, booties, and bibs. Ultra-soft fabric for sensitive baby skin."
+    }
+  ]
+}

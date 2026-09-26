@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  
+  h1, h2, h3, h4, .font-serif-brand {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+  
+  .font-handwriting, .font-script {
+    font-family: 'Caveat', 'Playball', 'Alex Brush', cursive;
+  }
+}
+
+/* Custom Utilities */
+.bg-maroon-main {
+  background-color: #70142C;
+}
+
+.bg-maroon-dark {
+  background-color: #580E21;
+}
+
+.bg-maroon-light {
+  background-color: #8C1C3B;
+}
+
+.text-maroon-main {
+  color: #70142C;
+}
+
+.border-maroon-main {
+  border-color: #70142C;
+}
+
+.bg-peach-light {
+  background-color: #faf2ec;
+}
+
+/* Custom scrollbar for horizontal categories */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

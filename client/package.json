@@ -1,25 +1,27 @@
 {
-  "name": "pranjul-fashion-house",
+  "name": "pranjul-fashion-house-client",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host 0.0.0.0 --port 5173",
+    "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
     "lucide-react": "^0.475.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.0.0",
-    "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0",
+    "@tailwindcss/vite": "^4.0.7",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
     "@vitejs/plugin-react": "^4.3.4",
-    "autoprefixer": "^10.6.1",
-    "tailwindcss": "^4.0.0",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.5.2",
+    "tailwindcss": "^4.0.7",
     "vite": "^6.1.0"
   }
 }
